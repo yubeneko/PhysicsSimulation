@@ -9,6 +9,7 @@
 #include "CubeGenerator.h"
 #include "PresetActor.h"
 #include "RigidBody.h"
+#include "CubeShooter.h"
 
 void SceneLoader::LoadScene(Core& core)
 {
@@ -19,6 +20,7 @@ void SceneLoader::LoadScene(Core& core)
 
 	cameraActor->AddComponent<CameraComponent>(100);
 	cameraActor->AddComponent<CameraMove>(50);
+	cameraActor->AddComponent<CubeShooter>();
 
 	for (int i = 0; i < 5; i++)
 	{
