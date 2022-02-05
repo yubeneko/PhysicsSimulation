@@ -24,9 +24,10 @@ void CubeShooter::ProcessInput(const struct InputState& state)
 {
 	if (state.keyboard.GetKeyDown(SDL_SCANCODE_SPACE))
 	{
+		auto owner = mOwner.lock();
 		auto cube = PresetActor::CreatePreset(
-			mOwner.lock()->GetCore(), "cube", PresetActor::PresetType::Cube);
-		cube->SetPosition(mOwner.lock()->GetPosition());
+			owner->GetCore(), "cube", PresetActor::PresetType::Cube);
+		cube->SetPosition(owner->GetPosition());
 		cube->SetScale(glm::vec3(0.5f));
 
 		auto meshComponent = cube->GetComponent<MeshComponent>();
@@ -37,5 +38,6 @@ void CubeShooter::ProcessInput(const struct InputState& state)
 		mat.mSmoothness = 100.0f;
 
 		auto rb = cube->AddComponent<RigidBody>();
+		rb->ApplyImpulse(owner->GetForward() * 20.0f);
 	}
 }

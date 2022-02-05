@@ -23,6 +23,11 @@ void RigidBody::SetMotionType(SimplePhysics::SpxMotionType type)
 	mPhysicsWorld.SetMotionType(mID, type);
 }
 
+void RigidBody::ApplyImpulse(glm::vec3 velocity)
+{
+	mPhysicsWorld.ApplyImpulse(mID, velocity);
+}
+
 void RigidBody::Update(float deltaTime)
 {
 	const SimplePhysics::SpxState& state = mPhysicsWorld.GetState(mID);

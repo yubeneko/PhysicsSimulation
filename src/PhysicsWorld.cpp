@@ -121,3 +121,8 @@ void PhysicsWorld::SetMotionType(int i, SimplePhysics::SpxMotionType type)
 {
 	mStates[i].m_motionType = type;
 }
+
+void PhysicsWorld::ApplyImpulse(int i, glm::vec3 velocity)
+{
+	mStates[i].m_linearVelocity = velocity;
+}

@@ -39,6 +39,7 @@ public:
 	// 剛体の属性を変更する関数
 
 	void SetMotionType(int i, SimplePhysics::SpxMotionType type);
+	void ApplyImpulse(int i, glm::vec3 velocity);
 
 	///////////////////////////////////////////////////////////////////////////////
 	//
