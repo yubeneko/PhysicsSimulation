@@ -3,7 +3,6 @@
 namespace SimplePhysics
 {
 
-// コピペ修正
 void SpxApplyExternalForce(
 	SpxState& state,
 	const SpxRigidBody& body,
@@ -20,13 +19,13 @@ void SpxApplyExternalForce(
 	glm::mat3 worldInertiaInv = orientation * glm::inverse(body.m_inertia) * glm::transpose(orientation);
 	glm::vec3 angularMomentum = worldInertia * state.m_angularVelocity;
 
-	// 速度/各速度の更新(オイラー陽解法)
+	// 速度/角速度の更新(オイラー陽解法)
 	state.m_linearVelocity += externalForce / body.m_mass * timeStep;
 
 	angularMomentum += externalTorque * timeStep;
 	state.m_angularVelocity = worldInertiaInv * angularMomentum;
 
-	// 力/トルクを適用した結果、速度/各速度が最大値を上回ってしまったら最大値に制限する
+	// 力/トルクを適用した結果、速度/角速度が最大値を上回ってしまったら最大値に制限する
 
 	float linVelSqr = glm::length2(state.m_linearVelocity);
 	if (linVelSqr > (SPX_MAX_LINEAR_VELOCITY * SPX_MAX_LINEAR_VELOCITY))
@@ -41,7 +40,6 @@ void SpxApplyExternalForce(
 	}
 }
 
-// コピペ修正
 void SpxIntegrate(
 	SpxState* states,
 	SpxUInt32 numRigidBodies,

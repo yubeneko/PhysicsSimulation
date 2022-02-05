@@ -8,7 +8,6 @@
 namespace SimplePhysics
 {
 
-// コピペ修正
 void SpxSolveConstraints(
 	SpxState* states,
 	const SpxRigidBody* bodies,

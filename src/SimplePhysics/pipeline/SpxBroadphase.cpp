@@ -25,7 +25,6 @@ static inline bool SpxIntersectAABB(
 	return true;
 }
 
-// コピペ修正
 void SpxBroadPhase(
 	const SpxState* states,
 	const SpxCollidable* collidables,
@@ -48,8 +47,6 @@ void SpxBroadPhase(
 	numNewPairs = 0;
 
 	// AABB交差ペアを見つける（総当たり）
-	// 処理の内容を明確にするため、ここでは空間分割テクニックを使っていませんが、
-	// 理論編で解説されているSweet and prune等の手法を使えば高速化できます。
 	for (SpxUInt32 i = 0; i < numRigidBodies; i++)
 	{
 		for (SpxUInt32 j = i + 1; j < numRigidBodies; j++)

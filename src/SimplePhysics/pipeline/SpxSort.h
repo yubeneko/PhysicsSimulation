@@ -56,7 +56,7 @@ void SpxMergeTwoBuffers(
 }
 
 /**
- * @brief マージソート(テスト済み)
+ * @brief マージソート
  *
  * @tparam SortData ソートするデータ型(メンバ変数 key を含む)
  * @param d ソートするデータの配列(中身がソートされる)

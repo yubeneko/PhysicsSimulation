@@ -4,8 +4,6 @@
 namespace SimplePhysics
 {
 
-// 全てコピペ修正
-
 const float SPX_CONTACT_SAME_POINT = 0.01f;
 const float SPX_CONTACT_THRESHOLD_NORMAL = 0.01f;	 // 衝突点の閾値(法線方向)
 const float SPX_CONTACT_THRESHOLD_TANGENT = 0.002f;	 // 衝突点の閾値(平面上)
