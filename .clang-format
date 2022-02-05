@@ -10,7 +10,7 @@ IndentWidth: 4
 TabWidth: 4
 ConstructorInitializerIndentWidth: 2
 ContinuationIndentWidth: 4
-NamespaceIndentation: All
+#NamespaceIndentation: All
 
 # Break(改行)
 BreakBeforeBraces: Custom

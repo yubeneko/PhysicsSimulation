@@ -3,6 +3,7 @@
 #include "InputSystem.h"
 #include "Actor.h"
 #include "SceneLoader.h"
+#include "PhysicsWorld.h"
 
 #include <algorithm>
 #include <glm/glm.hpp>
@@ -36,6 +37,8 @@ bool Core::Initialize()
 		mRenderer.reset();
 		return false;
 	}
+
+	mPhysicsWorld = std::make_unique<PhysicsWorld>();
 
 	mTicksCount = SDL_GetTicks();
 
@@ -144,6 +147,10 @@ void Core::Update()
 		mActors.emplace_back(pending);
 	}
 	mPendingActors.clear();
+
+	// 剛体シミュレーションを実行
+	// TODO: 並列処理化する
+	mPhysicsWorld->Simulate();
 
 	// 死亡したアクターをリストから除去
 	auto tail = std::remove_if(

@@ -71,9 +71,15 @@ public:
 
 	const glm::mat4 GetWorldTransform() const { return mWorldTransform; }
 
-	// 前方ベクトルを取得する
+	// アクターの前方ベクトルを取得する
+	// Z軸の正の方向を奥方向とみなすので、OpenGLとかからメッシュデータをエクスポートするときは
+	// Z-forward にすること。
 	glm::vec3 GetForward() const { return mRotation * glm::vec3(0.0f, 0.0f, 1.0f); }
+	// アクターの右ベクトルを取得する
 	glm::vec3 GetRight() const { return mRotation * glm::vec3(1.0f, 0.0f, 0.0f); }
+	// アクターの上ベクトルを取得する
+	// Y軸の正の方向を上方向とみなすので、OpenGLとかからメッシュデータをエクスポートするときは
+	// Y-up にすること。
 	glm::vec3 GetUp() const { return mRotation * glm::vec3(0.0f, 1.0f, 0.0f); }
 
 private:

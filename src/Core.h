@@ -15,6 +15,7 @@ public:
 	void Shutdown();
 	std::string GetWindowName() const { return mWindowName; }
 	class Renderer& GetRenderer() const { return *mRenderer; }
+	class PhysicsWorld& GetPhysicsWorld() const { return *mPhysicsWorld; }
 
 	std::shared_ptr<class Actor> CreateActor(const std::string& id);
 
@@ -30,6 +31,7 @@ private:
 
 	std::unique_ptr<class Renderer> mRenderer;
 	std::unique_ptr<class InputSystem> mInputSystem;
+	std::unique_ptr<class PhysicsWorld> mPhysicsWorld;
 
 	std::vector<std::shared_ptr<class Actor>> mActors;
 	std::vector<std::shared_ptr<class Actor>> mPendingActors;
